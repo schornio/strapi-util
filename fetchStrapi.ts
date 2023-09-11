@@ -14,7 +14,7 @@ type NextFetchRequestInit = RequestInit & {
   next?: NextFetchRequestConfig | undefined;
 };
 
-export type StrapiNestable<T> =
+type StrapiNestable<T> =
   | StrapiComponent<T>
   | StrapiComponent<T>[]
   | StrapiFindResult<T>
@@ -47,7 +47,7 @@ type StrapiQueryBasicFilter<T> = {
       };
 };
 
-export type StrapiPopulate<T> =
+type StrapiPopulate<T> =
   | '*'
   | {
       [key in keyof T]?: NonNullable<T[key]> extends StrapiNestable<unknown>
@@ -86,23 +86,26 @@ type StrapiBaseQuery<T> = {
   populate?: StrapiPopulate<T>;
 };
 
-type StrapiQuery<T> = StrapiBaseQuery<T> & {
-  locale?: string;
-  pagination?:
-    | {
-        page?: number;
-        pageSize?: number;
-        withCount?: boolean;
+type StrapiQuery<TQueryResult> =
+  NonNullable<TQueryResult> extends StrapiNestable<infer TQuery>
+    ? StrapiBaseQuery<TQuery> & {
+        locale?: string;
+        pagination?:
+          | {
+              page?: number;
+              pageSize?: number;
+              withCount?: boolean;
+            }
+          | {
+              start?: number;
+              limit?: number;
+              withCount?: boolean;
+            };
+        publicationState?: 'live' | 'preview';
       }
-    | {
-        start?: number;
-        limit?: number;
-        withCount?: boolean;
-      };
-  publicationState?: 'live' | 'preview';
-};
+    : never;
 
-export type FetchStrapiConfg<T> = {
+type FetchStrapiConfg<T> = {
   init?: RequestInit;
   next?: NextFetchRequestConfig;
   query?: StrapiQuery<T>;
