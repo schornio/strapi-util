@@ -1,0 +1,29 @@
+{
+  "name": "@schornio/strapi-util",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schornio/strapi-util.git"
+  },
+  "author": "Thomas Schorn <thomas@schorn.io>",
+  "license": "UNLICENCED",
+  "bugs": {
+    "url": "https://github.com/schornio/strapi-util/issues"
+  },
+  "homepage": "https://github.com/schornio/strapi-util#readme",
+  "devDependencies": {
+    "@types/node": "^20.6.0",
+    "@types/qs": "^6.9.8",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "qs": "^6.11.2"
+  }
+}
