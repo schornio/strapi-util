@@ -15,6 +15,7 @@ type NextFetchRequestInit = RequestInit & {
 };
 
 type StrapiNestable<T> =
+  | T[]
   | StrapiComponent<T>
   | StrapiComponent<T>[]
   | StrapiFindResult<T>
