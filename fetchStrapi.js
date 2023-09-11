@@ -9,7 +9,7 @@ async function fetchStrapi(path, { init, next, query } = {}) {
         ...init,
         next,
     };
-    const response = await fetch(`${STRAPI_ENDPOINT}/api${path}${queryString}`, requestInit);
+    const response = await fetch(`${STRAPI_ENDPOINT}/api${path}?${queryString}`, requestInit);
     return (await response.json());
 }
 exports.fetchStrapi = fetchStrapi;

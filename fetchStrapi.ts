@@ -121,7 +121,7 @@ export async function fetchStrapi<TResult>(
     next,
   } satisfies NextFetchRequestInit;
   const response = await fetch(
-    `${STRAPI_ENDPOINT}/api${path}${queryString}`,
+    `${STRAPI_ENDPOINT}/api${path}?${queryString}`,
     requestInit,
   );
   return (await response.json()) as TResult;
