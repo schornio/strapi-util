@@ -21,9 +21,11 @@ type StrapiNestable<T> =
   | StrapiFindResult<T>
   | StrapiFindOneResult<T>;
 
+type StrapiQueryable<T> = Required<T> & { id: number | string };
+
 type StrapiQueryBasicFilter<T> = {
   [key in keyof T]?: T[key] extends StrapiNestable<infer U>
-    ? StrapiQueryBasicFilter<U>
+    ? StrapiQueryBasicFilter<StrapiQueryable<U>>
     : {
         $eq?: T[key];
         $eqi?: T[key];
@@ -76,10 +78,10 @@ type StrapiPopulate<T> =
 
 type StrapiBaseQuery<T> = {
   fields?: (keyof T)[];
-  filters?: StrapiQueryBasicFilter<Required<T>> & {
-    $and?: StrapiQueryBasicFilter<T>[];
-    $or?: StrapiQueryBasicFilter<T>[];
-    $not?: StrapiQueryBasicFilter<T>[];
+  filters?: StrapiQueryBasicFilter<StrapiQueryable<T>> & {
+    $and?: StrapiQueryBasicFilter<StrapiQueryable<T>>[];
+    $or?: StrapiQueryBasicFilter<StrapiQueryable<T>>[];
+    $not?: StrapiQueryBasicFilter<StrapiQueryable<T>>[];
   };
   sort?: keyof T extends string
     ? (`${keyof T}:asc` | `${keyof T}:desc`)[]

@@ -2,7 +2,9 @@
   "name": "@schornio/strapi-util",
   "version": "0.2.0",
   "description": "",
-  "main": "index.js",
+  "exports": {
+    ".": "./lib"
+  },
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
