@@ -1,4 +1,5 @@
 import { StrapiFindOneResult } from './StrapiFindOneResult';
+import { StrapiFindResult } from './StrapiFindResult';
 
 type StrapiImageFields = {
   ext: string;
@@ -20,3 +21,5 @@ export type StrapiImageBase = StrapiImageFields & {
 };
 
 export type StrapiImage = StrapiFindOneResult<StrapiImageBase>;
+
+export type StrapiImageCollection = StrapiFindResult<StrapiImageBase>;
