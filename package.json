@@ -3,7 +3,10 @@
   "version": "0.6.0",
   "description": "",
   "exports": {
-    "./*": "./lib/*"
+    "./*": {
+      "default": "./lib/*",
+      "types": "./lib/*"
+    }
   },
   "scripts": {
     "build": "tsc",
