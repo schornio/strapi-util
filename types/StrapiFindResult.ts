@@ -1,8 +1,8 @@
-import { StrapiData } from "./StrapiData";
-import type { StrapiPagination } from "./StrapiPagination";
+import { StrapiDocument } from './StrapiDocument';
+import type { StrapiPagination } from './StrapiPagination';
 
 export type StrapiFindResult<TAttributes> = {
-  data: StrapiData<TAttributes>[];
+  data: StrapiDocument<TAttributes>[];
   meta: {
     pagination: StrapiPagination;
   };

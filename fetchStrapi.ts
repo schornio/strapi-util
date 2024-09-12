@@ -1,7 +1,7 @@
-import { stringify } from 'qs';
 import { StrapiFindResult } from './types/StrapiFindResult';
 import { StrapiFindOneResult } from './types/StrapiFindOneResult';
 import { StrapiComponent } from './types/StrapiComponent';
+import { toURLSearchParams } from './lib/toURLSearchParams';
 
 const { STRAPI_ENDPOINT } = process.env;
 
@@ -104,7 +104,7 @@ type StrapiQuery<TQueryResult> =
               limit?: number;
               withCount?: boolean;
             };
-        publicationState?: 'live' | 'preview';
+        status?: 'published' | 'draft';
       }
     : never;
 
@@ -118,7 +118,7 @@ export async function fetchStrapi<TResult>(
   path: string,
   { init, next, query }: FetchStrapiConfg<TResult> = {},
 ) {
-  const queryString = stringify(query);
+  const queryString = toURLSearchParams(query);
   const requestInit = {
     ...init,
     next,

@@ -1,6 +1,6 @@
-import type { StrapiData } from "./StrapiData";
+import type { StrapiDocument } from './StrapiDocument';
 
 export type StrapiFindOneResult<TAttributes> = {
-  data: StrapiData<TAttributes> | null;
+  data: StrapiDocument<TAttributes> | null;
   meta?: {};
 };

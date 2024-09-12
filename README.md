@@ -1,5 +1,7 @@
 # @schornio/strapi-util
 
+**Attention: this is `v2`, reworked for Strapi `v5`**
+
 ```
 npm i @schornio/strapi-util
 ```
@@ -72,7 +74,7 @@ export function getPageComplexQuery(slug: string) {
         },
         image: '*',
       },
-      publicationState: 'live',
+      status: 'published',
       sort: ['title:asc'],
     },
   });

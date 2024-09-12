@@ -1,6 +1,6 @@
 {
   "name": "@schornio/strapi-util",
-  "version": "0.8.0",
+  "version": "2.0.0",
   "description": "",
   "scripts": {
     "build": "tsc",
@@ -18,11 +18,7 @@
   "homepage": "https://github.com/schornio/strapi-util#readme",
   "devDependencies": {
     "@types/node": "^20.6.0",
-    "@types/qs": "^6.9.8",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2"
-  },
-  "dependencies": {
-    "qs": "^6.11.2"
   }
 }

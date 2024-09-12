@@ -65,7 +65,7 @@ type StrapiQuery<TQueryResult> = NonNullable<TQueryResult> extends StrapiNestabl
         limit?: number;
         withCount?: boolean;
     };
-    publicationState?: 'live' | 'preview';
+    status?: 'published' | 'draft';
 } : never;
 type FetchStrapiConfg<T> = {
     init?: RequestInit;
