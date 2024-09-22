@@ -10,9 +10,9 @@ type StrapiImageFields = {
     height: number;
 };
 export type StrapiImage = StrapiImageFields & {
-    alternativeText: string;
-    caption: string;
-    formats: {
+    alternativeText?: string | null;
+    caption?: string | null;
+    formats?: {
         [key: string]: StrapiImageFields;
     };
 };
