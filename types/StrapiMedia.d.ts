@@ -1,11 +1,11 @@
-import { StrapiFindOneResult } from './StrapiFindOneResult';
 import { StrapiFindResult } from './StrapiFindResult';
-export type StrapiMediaBase = {
-    alternativeText: string;
+export type StrapiMedia = {
+    alternativeText?: string | null;
+    caption?: string | null;
     formats: {
-        [key: string]: StrapiMediaBase;
+        [key: string]: StrapiMedia;
     } | null;
+    mime: string;
     url: string;
 };
-export type StrapiMedia = StrapiFindOneResult<StrapiMediaBase>;
-export type StrapiMediaCollection = StrapiFindResult<StrapiMediaBase>;
+export type StrapiMediaCollection = StrapiFindResult<StrapiMedia>;
